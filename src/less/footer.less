@@ -1,0 +1,89 @@
+// 页脚
+@import "./mixins/index";
+@import "./themes/index";
+
+footer {
+  .footer-content {
+    // height: @footer-height;
+    background-color: @footer-gb-color;
+    color: @footer-color;
+  }
+
+  .copyright {
+    background: #fff;
+    color: #999;
+    height: 32px;
+    line-height: 32px;
+
+    ul > {
+      float: right;
+
+      li {
+        float: left;
+
+        a {
+          color: #999;
+          float: left;
+        }
+        // 间隔面包线
+        .breadcrumb {
+          float: left;
+          padding: 0 8px;
+        }
+      }
+    }
+  }
+
+  .copyright,
+  .footer-content {
+    > div {
+      width: @page-width;
+      margin: 0 auto;
+    }
+  }
+
+  .footer-content {
+    padding: 20px 0;
+    // ul
+    ul {
+      > li {
+        text-align: left;
+        line-height: 22px;
+
+        > a {
+          color: @footer-color;
+        }
+      }
+    }
+    // 左边logo区域
+    .footer-content-left {
+      float: left;
+      width: 225px;
+
+      .footer-logo {
+        width: 196px;
+        height: 69px;
+        background: url("/img/b_logo.png") no-repeat center center;
+        margin-bottom: 15px;
+      }
+    }
+    // 中间友情链接
+    .footer-content-center {
+      float: left;
+      width: 510px;
+      padding-left: 80px;
+
+      > ul {
+        float: left;
+        width: 135px;
+      }
+    }
+    // 右边联系qq
+    .footer-content-right {
+      float: right;
+      padding-left: 20px;
+      height: 130px;
+      border-left: solid 1px #fff;
+    }
+  }
+}
