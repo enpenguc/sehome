@@ -38,7 +38,7 @@ var dist = __dirname + '/dist';
 
 var paths = {
   scripts: 'src/js/**/*.js',
-  styles: 'src/less/**/*',
+  styles: 'src/less/**/*.less',
   images: 'src/img/**/*',
   html: 'src/pages/**/*',
   vendor: 'vendor/**/*',
@@ -56,7 +56,7 @@ var banner = [
 ].join('\n');
 
 // 编译脚本
-gulp.task('build:scripts', ['clean'], function() {
+gulp.task('build:scripts', function() {
   // 合并压缩js
   return gulp.src(paths.scripts, option)
     .pipe(sourcemaps.init())
@@ -82,7 +82,7 @@ gulp.task('build:scripts', ['clean'], function() {
 });
 
 // 编译样式
-gulp.task('build:style', ['clean'], function() {
+gulp.task('build:style', function() {
   return gulp.src(paths.styles, option)
     .pipe(sourcemaps.init())
     .pipe(less().on('error', function(e) {
@@ -98,8 +98,8 @@ gulp.task('build:style', ['clean'], function() {
       extensionsAllowed: ['.gif', '.jpg', ".png"]
     }))
     .pipe(sourcemaps.write())
-    .pipe(rename({
-      dirname: 'css'
+    .pipe(rename(function(path) {
+      path.dirname = path.dirname.replace('less', 'css');
     }))
     // .pipe(rev())
     .pipe(gulp.dest(dist))
@@ -120,15 +120,23 @@ gulp.task('build:style', ['clean'], function() {
 });
 
 // 图片处理
-gulp.task('build:img', ['clean'], function() {
+gulp.task('build:img', function() {
   return gulp.src(paths.images, option)
     .pipe(changed(dist))
     // .pipe(imagemin())
     .pipe(gulp.dest(dist));
 });
 
+// 复制依赖的第三方插件
+gulp.task('copy:vendor', function() {
+  return gulp.src(paths.vendor, {
+      base: "./"
+    })
+    .pipe(gulp.dest(dist));
+});
+
 // 处理版本
-gulp.task("revision",['clean', 'build:scripts', 'build:style','copy:vendor'], function() {
+gulp.task("revision", ['build:scripts', 'build:style', 'build:img', 'copy:vendor'], function() {
   return gulp.src(["dist/**/*.css", "dist/**/*.js"], {
       // base: "./dist"
     })
@@ -139,7 +147,7 @@ gulp.task("revision",['clean', 'build:scripts', 'build:style','copy:vendor'], fu
 })
 
 // 页面处理
-gulp.task('build:html', ['clean', 'build:scripts', 'build:style','copy:vendor','revision'], function() {
+gulp.task('build:html', ['revision'], function() {
   var manifest = gulp.src(path.join(dist, "rev-manifest.json"));
   return gulp.src(paths.html, option)
     .pipe(changed(dist))
@@ -147,14 +155,6 @@ gulp.task('build:html', ['clean', 'build:scripts', 'build:style','copy:vendor','
     .pipe(revReplace({
       manifest: manifest
     }))
-    .pipe(gulp.dest(dist));
-});
-
-// 复制依赖的第三方插件
-gulp.task('copy:vendor', ['clean'], function() {
-  return gulp.src(paths.vendor, {
-      base: "./"
-    })
     .pipe(gulp.dest(dist));
 });
 
@@ -168,6 +168,7 @@ gulp.task('release', ['clean', 'build:scripts', 'build:style', 'build:img', 'rev
 
 // 定义watch任务
 gulp.task('watch', function() {
+  gulp.watch(paths.scripts, ['build:scripts']);
   gulp.watch(paths.styles, ['build:style']);
   gulp.watch(paths.images, ['build:img']);
   gulp.watch(paths.html, ['build:html']);
@@ -238,7 +239,7 @@ gulp.task('server', function() {
       }
     },
     port: yargs.p,
-    startPath: '/pages/index.htm'
+    startPath: '/pages/index.html'
   });
 });
 

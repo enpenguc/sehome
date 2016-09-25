@@ -1,0 +1,58 @@
+// size大小
+
+.size(@width; @height) {
+  width: @width;
+  height: @height;
+}
+
+.square(@size) {
+  .size(@size; @size);
+}
+// a链接
+
+.a (@link-color, @link-active-color, @link-hover-color) {
+  color: @link-color;
+  background: transparent;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: @link-hover-color;
+  }
+
+  &:active {
+    color: @link-active-color;
+  }
+
+  &:active,
+  &:hover {
+    outline: 0;
+    text-decoration: none;
+  }
+
+  &[disabled] {
+    color: #ccc;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+// 清除浮动
+
+.clearfix() {
+  zoom: 1;
+
+  &:after,
+  &:before {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+    visibility: hidden;
+    font-size: 0;
+    height: 0;
+  }
+}

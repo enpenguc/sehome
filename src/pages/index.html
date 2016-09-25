@@ -10,57 +10,94 @@
     <meta name="description" content="">
     <!-- <link rel="icon" href="../favicon.ico">  -->
     <link rel="shortcut icon" href="/images/favicon.png">
-    <title>Express-{{title}}</title>
-    <link rel='stylesheet' href='/vendor/antd/antd.css'/>
+    <title>Express</title>
+    <!-- <link rel='stylesheet' href='/vendor/antd/antd.css'/> -->
     <link rel='stylesheet' href='/css/se.css'/>
   </head>
 
   <body>
-    <header id="header" class="clearfix">
-      <div class="ant-row">
-        <div class="ant-col-xs-24 ant-col-sm-7 ant-col-md-6 ant-col-lg-4">
-          <i class="nav-phone-icon anticon anticon-menu"></i>
-          <a class="logo" href="/">
-            <i></i>
-            <span>Ant Design</span>
-          </a>
-        </div>
-        <div class="nav ant-col-xs-0 ant-col-sm-17 ant-col-md-18 ant-col-lg-20">
-          <ul class="ant-menu ant-menu-horizontal ant-menu-light ant-menu-root" role="menu" aria-activedescendant="" id="nav" tabindex="0">
-            <li class="ant-menu-item" role="menuitem" aria-selected="false">
-              <a href="/">
-                <span>首页</span>
-              </a>
-            </li>
-            <li class="ant-menu-item" role="menuitem" aria-selected="false">
-              <a href="/docs/practice/cases">
-                <span>实践</span>
-              </a>
-            </li>
-            <li class="ant-menu-item" role="menuitem" aria-selected="false">
-              <a href="/docs/pattern/navigation">
-                <span>模式</span>
-              </a>
-            </li>
-            <li class="ant-menu-item-selected ant-menu-item" role="menuitem" aria-selected="true">
-              <a href="/docs/react/introduce">
-                <span>组件</span>
-              </a>
-            </li>
-            <li class="ant-menu-item" role="menuitem" aria-selected="false">
-              <a href="/docs/spec/introduce">
-                <span>语言</span>
-              </a>
-            </li>
-            <li class="ant-menu-item" role="menuitem" aria-selected="false">
-              <a href="/docs/resource/download">
-                <span>资源</span>
-              </a>
-            </li>
-          </ul>
-        </div>
+    <div class="top-nav">
+      <div>
+        <ul class="pull-left">
+          <li>
+            <a class="login-tip">亲，请登录</a>
+          </li>
+          <li>
+            <a>免费注册</a>
+          </li>
+        </ul>
+        <ul class="pull-right">
+          <li>
+            <a>上传身份证</a>
+          </li>
+          <li>
+            <a>关于我们</a>
+          </li>
+          <li>
+            <a>客服中心</a>
+          </li>
+        </ul>
       </div>
+    </div>
+    <header class="clearfix">
+      <div class="logo pull-left">
+        <a href="/"></a>
+      </div>
+      <nav class="nav-menu pull-right">
+        <ul>
+          <li class="selected">
+            <a href="/">网站首页</a>
+          </li>
+          <li>
+            <a href="/">费用相关</a>
+          </li>
+          <li>
+            <a href="/">禁运物品</a>
+          </li>
+          <li>
+            <a href="/">新闻公告</a>
+          </li>
+          <li>
+            <a href="/">海淘教程</a>
+          </li>
+          <li>
+            <a href="/">用户指南</a>
+          </li>
+          <li>
+            <a href="/">API接口</a>
+          </li>
+        </ul>
+      </nav>
     </header>
+    <div class="banner">
+      <ul>
+        <li>
+          <div class="banner-bg" style="background-image:url('/img/banner/banner_home.jpg');"></div>
+        </li>
+        <li>
+          <div class="banner-bg" style="background-image:url('/img/banner/wood.jpg');"></div>
+        </li>
+        <li>
+          <div class="banner-bg" style="background-image:url('/img/banner/subway.jpg');"></div>
+          <!-- <img src="/img/banner/subway.jpg"/> -->
+        </li>
+        <li>
+          <div class="banner-bg" style="background-image:url('/img/banner/sunset.jpg');"></div>
+        </li>
+        <li>
+          <div class="banner-bg" style="background-image:url('/img/banner/wood.jpg');"></div>
+          <!-- <img src="/img/banner/wood.jpg"/> -->
+        </li>
+      </ul>
+    </div>
+    <script type="text/javaScript" src="/vendor/jquery/jquery-1.12.3.js"></script>
+    <script type="text/javaScript" src="/vendor/unslider/unslider-min.js"></script>
+    <script>
+      $(function() {
+        $('.banner').unslider({animation: 'fade', autoplay: true, arrows: false});
+      })
+    </script>
+
     <script type="text/javaScript" src="/js/all.js"></script>
   </body>
 
