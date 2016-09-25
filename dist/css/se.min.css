@@ -1,5 +1,5 @@
 /*!
- * sehome v1.0.0 - Sun Sep 25 2016 00:20:49 GMT+0800 (中国标准时间) 
+ * sehome v1.0.0 - build @2016-09-25 
  * se website
  * Author: 冯恩鹏<enpenguc@163.com> 
  * https://github.com/enpenguc/sehome

@@ -2,26 +2,34 @@ var path = require('path');
 var fs = require('fs');
 var yargs = require('yargs').argv;
 var gulp = require('gulp');
-var less = require('gulp-less');
+var changed = require('gulp-changed');
 var header = require('gulp-header');
-var tap = require('gulp-tap');
-var nano = require('gulp-cssnano');
+var rename = require('gulp-rename');
+var sourcemaps = require('gulp-sourcemaps');
+var browserSync = require('browser-sync');
+// var tap = require('gulp-tap');
+// css处理
+var less = require('gulp-less');
 var postcss = require('gulp-postcss');
 var base64 = require('gulp-css-base64')
 var autoprefixer = require('autoprefixer');
-var rename = require('gulp-rename');
-var sourcemaps = require('gulp-sourcemaps');
-var changed = require('gulp-changed');
-var uglify = require('gulp-uglify');
-var concat = require('gulp-concat');
-var browserSync = require('browser-sync');
-var del = require('del');
+var nano = require('gulp-cssnano');
+// 图片
 var imagemin = require('gulp-imagemin');
+// js
+var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
+var del = require('del');
+// 版本处理
+var rev = require('gulp-rev');
+var revFormatExt = require('./gulp-plugin/gulp-rev-format-ext');
+var revReplace = require('gulp-rev-replace');
+// 代理
 var httpProxy = require("http-proxy-middleware");
 var url = require('url');
 
-var pkg = require('./package.json');
 
+var pkg = require('./package.json');
 
 var option = {
   base: './src',
@@ -29,16 +37,16 @@ var option = {
 var dist = __dirname + '/dist';
 
 var paths = {
-  scripts: ['src/js/**/*.js'],
+  scripts: 'src/js/**/*.js',
   styles: 'src/less/**/*',
   images: 'src/img/**/*',
   html: 'src/pages/**/*',
-  lib: 'lib/**/*',
+  vendor: 'vendor/**/*',
 };
 
 var banner = [
   '/*!',
-  ' * <%= pkg.name %> v<%= pkg.version %> - <%= new Date() %> ',
+  ' * <%= pkg.name %> v<%= pkg.version %> - build @<%= (new Date()).toLocaleDateString() %> ',
   ' * <%= pkg.description %>',
   ' * Author: <%= pkg.author %> ',
   // ' * Licensed under the <%= pkg.license %> license',
@@ -49,8 +57,7 @@ var banner = [
 
 // 编译脚本
 gulp.task('build:scripts', ['clean'], function() {
-  // Minify and copy all JavaScript (except vendor scripts)
-  // with sourcemaps all the way down
+  // 合并压缩js
   return gulp.src(paths.scripts, option)
     .pipe(sourcemaps.init())
     .pipe(concat('js/all.js'))
@@ -58,6 +65,7 @@ gulp.task('build:scripts', ['clean'], function() {
       pkg: pkg
     }))
     .pipe(sourcemaps.write())
+    // .pipe(rev())
     .pipe(gulp.dest(dist))
     .pipe(browserSync.reload({
       stream: true
@@ -66,12 +74,16 @@ gulp.task('build:scripts', ['clean'], function() {
     .pipe(rename(function(path) {
       path.basename += '.min';
     }))
-    .pipe(gulp.dest(dist));
+    .pipe(gulp.dest(dist))
+    // .pipe(rev.manifest({
+    //   merge: true
+    // }))
+    // .pipe(gulp.dest(dist))
 });
 
 // 编译样式
 gulp.task('build:style', ['clean'], function() {
-  gulp.src(paths.styles, option)
+  return gulp.src(paths.styles, option)
     .pipe(sourcemaps.init())
     .pipe(less().on('error', function(e) {
       console.error(e.message);
@@ -89,6 +101,7 @@ gulp.task('build:style', ['clean'], function() {
     .pipe(rename({
       dirname: 'css'
     }))
+    // .pipe(rev())
     .pipe(gulp.dest(dist))
     .pipe(browserSync.reload({
       stream: true
@@ -99,42 +112,59 @@ gulp.task('build:style', ['clean'], function() {
     }), {
       dirname: 'css'
     })
-    .pipe(gulp.dest(dist));
+    .pipe(gulp.dest(dist))
+    // .pipe(rev.manifest({
+    //   merge: true
+    // }))
+    // .pipe(gulp.dest(dist))
 });
-
 
 // 图片处理
 gulp.task('build:img', ['clean'], function() {
-  gulp.src(paths.images, option)
+  return gulp.src(paths.images, option)
     .pipe(changed(dist))
     // .pipe(imagemin())
     .pipe(gulp.dest(dist));
 });
 
+// 处理版本
+gulp.task("revision",['clean', 'build:scripts', 'build:style','copy:vendor'], function() {
+  return gulp.src(["dist/**/*.css", "dist/**/*.js"], {
+      // base: "./dist"
+    })
+    .pipe(rev())
+    .pipe(revFormatExt())
+    .pipe(rev.manifest())
+    .pipe(gulp.dest(dist))
+})
+
 // 页面处理
-gulp.task('build:html', ['clean'], function() {
-  gulp.src(paths.html, option)
+gulp.task('build:html', ['clean', 'build:scripts', 'build:style','copy:vendor','revision'], function() {
+  var manifest = gulp.src(path.join(dist, "rev-manifest.json"));
+  return gulp.src(paths.html, option)
     .pipe(changed(dist))
+    // 替换静态资源
+    .pipe(revReplace({
+      manifest: manifest
+    }))
     .pipe(gulp.dest(dist));
 });
 
-gulp.task('copy:lib', ['clean'], function() {
-  gulp.src(paths.lib, {
+// 复制依赖的第三方插件
+gulp.task('copy:vendor', ['clean'], function() {
+  return gulp.src(paths.vendor, {
       base: "./"
     })
     .pipe(gulp.dest(dist));
 });
 
-
 // 清空图片、样式、js
 gulp.task('clean', function() {
-  return del.sync('./dist', {
-    force: true
-  });
+  return del.sync('./dist');
 });
 
 // 定义release任务
-gulp.task('release', ['clean', 'build:scripts', 'build:style', "build:img", 'build:html', 'copy:lib']);
+gulp.task('release', ['clean', 'build:scripts', 'build:style', 'build:img', 'revision', 'copy:vendor', 'build:html']);
 
 // 定义watch任务
 gulp.task('watch', function() {
