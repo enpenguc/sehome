@@ -1,0 +1,60 @@
+// 优惠活动/用户指南
+@import "../../mixins/index";
+@import "../../themes/index";
+
+.guide-block {
+  height: 434px;
+  padding: 40px 0;
+  background-color: #DCECFC;
+
+  > .inner-block {
+    width: @page-width;
+    margin: 0 auto;
+    .clearfix();
+  }
+  // 活动
+  .activer {
+    width: 710px;
+    float: left;
+  }
+
+  .guide {
+    width: 330px;
+    float: right;
+
+    ul {
+      height: 330px;
+      overflow: hidden;
+      padding-top: 10px;
+      padding-left: 20px;
+      color: #010002;
+
+      > li {
+        list-style-type: disc;
+        line-height: 30px;
+
+        > div {
+          width: 100%;
+          float: right;
+          .clearfix();
+
+          > div {
+            .ellipsis(330px - 20px - 90px);
+            float: left;
+
+            > a {
+              .a(#63676A, @link-hover-color,@link-active-color)
+            }
+          }
+
+          > span {
+            color: #9B9B9B;
+            float: right;
+            text-align: right;
+            width: 90px;
+          }
+        }
+      }
+    }
+  }
+}

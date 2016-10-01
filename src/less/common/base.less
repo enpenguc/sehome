@@ -1,0 +1,37 @@
+// 公共基础样式
+@import "../mixins/index";
+@import "../themes/index";
+
+.se-section {
+  display: block;
+
+  > .se-section-header {
+    position: relative;
+    height: @section-header-height;
+    line-height: @section-header-height;
+    border-bottom: solid 1px @section-header-border-color;
+    .clearfix();
+
+    > span {
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      padding: 0 10px;
+      height: @section-header-height;
+      text-align: center;
+      color: @section-name-color;
+      border-bottom: solid 1px @section-name-border-color;
+    }
+
+    > a {
+      .a(#979998, @link-hover-color,@link-active-color);
+      float: right;
+      padding-right: 10px;
+    }
+  }
+
+  > .se-section-block {
+    .clearfix();
+  }
+}

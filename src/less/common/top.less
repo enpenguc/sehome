@@ -1,0 +1,38 @@
+/* 吊顶 */
+@import "../mixins/index";
+@import "../themes/index";
+
+.top-nav {
+  background-color: @top-bg-color;
+  height: @top-height;
+  // color: @top-color;
+  a {
+    // color:@top-color;
+    .a(@top-color, @top-link-hover-color, @top-link-active-color);
+  }
+
+  a.login-tip {
+    color: @top-login-tip-color;
+  }
+
+  > div {
+    width: @page-width;
+    margin: 0 auto;
+
+    ul {
+      > li {
+        float: left;
+        line-height: @top-height;
+
+        a {
+          float: left;
+        }
+        // 间隔面包线
+        .breadcrumb {
+          float: left;
+          padding: @top-link-breadcrumb-padding;
+        }
+      }
+    }
+  }
+}

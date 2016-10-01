@@ -7,15 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <meta http-equiv="render" content="webkit">
+    <title>速翼</title>
     <meta name="description" content="">
     <!-- <link rel="icon" href="../favicon.ico">  -->
     <link rel="shortcut icon" href="/images/favicon.png">
-    <title>Express</title>
     <!-- <link rel='stylesheet' href='/vendor/antd/antd.css'/> -->
     <link rel='stylesheet' href='/css/se.css'/>
   </head>
 
   <body>
+    <!-- 吊顶 -->
     <div class="top-nav">
       <div>
         <ul class="pull-left">
@@ -42,6 +43,7 @@
         </ul>
       </div>
     </div>
+    <!-- 头部菜单logo栏 -->
     <header class="clearfix">
       <div class="logo pull-left">
         <a href="/"></a>
@@ -72,26 +74,153 @@
         </ul>
       </nav>
     </header>
-    <div class="banner">
-      <ul>
-        <li>
-          <div class="banner-bg" style="background-image:url('/img/banner/banner_home.jpg');"></div>
-        </li>
-        <li>
-          <div class="banner-bg" style="background-image:url('/img/banner/wood.jpg');"></div>
-        </li>
-        <li>
-          <div class="banner-bg" style="background-image:url('/img/banner/subway.jpg');"></div>
-          <!-- <img src="/img/banner/subway.jpg"/> -->
-        </li>
-        <li>
-          <div class="banner-bg" style="background-image:url('/img/banner/sunset.jpg');"></div>
-        </li>
-        <li>
-          <div class="banner-bg" style="background-image:url('/img/banner/wood.jpg');"></div>
-          <!-- <img src="/img/banner/wood.jpg"/> -->
-        </li>
-      </ul>
+    <!-- 轮播图片、通告 -->
+    <div class="banner-block">
+      <!-- 公告 -->
+      <div class="notice-warp">
+        <div class="notice">
+          <div class="title">
+            <span class="seicon seicon-notice"></span>公告</div>
+          <ul>
+            <li>
+              <a href="#">网站使用（普通客户）</a>
+            </li>
+            <li>
+              <a href="#">网站使用（大客户）</a>
+            </li>
+            <li>
+              <a href="#">增值服务说明</a>
+            </li>
+            <li>
+              <a href="#">未预报到库包裹流程处理</a>
+            </li>
+            <li>
+              <a href="#">大客户表格填写说明</a>
+            </li>
+            <li>
+              <a href="#">身份证上传指南</a>
+            </li>
+            <li>
+              <a href="#">网站使用（普通客户）</a>
+            </li>
+            <li>
+              <a href="#">网站使用（大客户）</a>
+            </li>
+            <li>
+              <a href="#">增值服务说明</a>
+            </li>
+            <li>
+              <a href="#">未预报到库包裹流程处理</a>
+            </li>
+            <li>
+              <a href="#">大客户表格填写说明</a>
+            </li>
+            <li>
+              <a href="#">大客户表格填写说明2</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- 轮播图片 -->
+      <div class="unslider">
+        <ul class="unslider-wrap">
+          <li>
+            <div class="banner-bg" style="background-image:url('/img/banner/banner_home.jpg');"></div>
+          </li>
+          <li>
+            <div class="banner-bg" style="background-image:url('/img/banner/wood.jpg');"></div>
+          </li>
+          <li>
+            <div class="banner-bg" style="background-image:url('/img/banner/subway.jpg');"></div>
+            <!-- <img src="/img/banner/subway.jpg"/> -->
+          </li>
+          <li>
+            <div class="banner-bg" style="background-image:url('/img/banner/sunset.jpg');"></div>
+          </li>
+          <li>
+            <div class="banner-bg" style="background-image:url('/img/banner/wood.jpg');"></div>
+            <!-- <img src="/img/banner/wood.jpg"/> -->
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- 搜索区域 -->
+    <div class="search-block">
+      <div class="search-wrap">
+        <ul class="search-tab">
+          <li class="active">包裹追踪</li>
+          <li>
+            <a href="#">价格查询</a>
+          </li>
+        </ul>
+        <div class="search-group">
+          <div class="input-wrap">
+            <input type="text" placeholder="请输入运单号，如“232342453522553” "/>
+          </div>
+          <div class="btn-wrap">
+            <input type="button" value="查 询">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 优惠活动/用户指南 -->
+    <div class="guide-block">
+      <div class="inner-block">
+        <div class="se-section activer">
+          <div class="se-section-header">
+            <span>优惠活动</span>
+            <a href="#">更多&gt;</a>
+          </div>
+          <div class="se-section-block">
+          </div>
+        </div>
+        <div class="se-section guide">
+          <div class="se-section-header">
+            <span>用户指南</span>
+            <a href="#">更多&gt;</a>
+          </div>
+          <div class="se-section-block">
+            <ul>
+              <li>
+                <div><div><a href="#">网站使用（普通客户）</a></div><span>2016-08-09</span></div>
+              </li>
+              <li>
+                <div><div><a href="#">网站使用（大客户）</a></div><span>2016-08-09</span></div>
+              </li>
+              <li>
+                <div><div><a href="#">增值服务说明</a></div><span>2016-08-09</span></div>
+              </li>
+              <li>
+                <div><div><a href="#">未预报到库包裹流程处理</a></div><span>2016-08-09</span></div>
+              </li>
+              <li>
+                <div><div><a href="#">大客户表格填写说明大客户表格填写说明,表格填写说明</a></div><span>2016-08-09</span></div>
+              </li>
+              <li>
+                <div><div><a href="#">身份证上传指南</a></div><span>2016-08-09</span></div>
+              </li>
+              <li>
+                <div><div><a href="#">网站使用（普通客户）网站使用（普通客户）网站使用（普通客户）</a></div><span>2016-08-09</span></div>
+              </li>
+              <li>
+                <div><div><a href="#">网站使用（大客户）</a></div><span>2016-08-09</span></div>
+              </li>
+              <li>
+                <div><div><a href="#">增值服务说明</a></div><span>2016-08-09</span></div>
+              </li>
+              <li>
+                <div><div><a href="#">未预报到库包裹流程处理</a></div><span>2016-08-09</span></div>
+              </li>
+              <li>
+                <div><div><a href="#">大客户表格填写说明</a></div><span>2016-08-09</span></div>
+              </li>
+              <li>
+                <div><div><a href="#">大客户表格填写说明2</a></div><span>2016-08-09</span></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
     <div style="height:200px;"></div>
     <footer>
@@ -146,7 +275,11 @@
           </div>
           <div class="footer-content-right">
             <ul>
-              <li><a><span class="seicon seicon-qqtalk"></span></a></li>
+              <li>
+                <a>
+                  <span class="seicon seicon-qqtalk"></span>
+                </a>
+              </li>
               <li>客服上班时间：周一至周五：9:00-18:00，周六：9:00-12:00</li>
             </ul>
           </div>
@@ -195,7 +328,7 @@
     <script type="text/javaScript" src="/vendor/unslider/unslider-min.js"></script>
     <script>
       $(function() {
-        $('.banner').unslider({animation: 'fade', autoplay: true, arrows: false});
+        $('.unslider').unslider({animation: 'fade', autoplay: false, arrows: false});
       })
     </script>
 

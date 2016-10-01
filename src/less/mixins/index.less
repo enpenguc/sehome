@@ -10,6 +10,10 @@
 }
 // a链接
 
+.a(@link-color) {
+  .a(@link-color,tint(@link-color, 20%),shade(@link-color, 5%));
+}
+
 .a (@link-color, @link-active-color, @link-hover-color) {
   color: @link-color;
   background: transparent;
@@ -55,4 +59,28 @@
     font-size: 0;
     height: 0;
   }
+}
+// Placeholder text
+
+.placeholder(@color:@input-placeholder-color) {
+  // Firefox
+  &::-moz-placeholder {
+    color: @color;
+    opacity: 1; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
+  }
+  // Internet Explorer 10+
+  &:-ms-input-placeholder {
+    color: @color;
+  }
+  // Safari and Chrome
+  &::-webkit-input-placeholder {
+    color: @color;
+  }
+}
+// ellipsis
+.ellipsis(@width:auto) {
+  width: @width;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

@@ -38,7 +38,7 @@ var dist = __dirname + '/dist';
 
 var paths = {
   scripts: 'src/js/**/*.js',
-  styles: 'src/less/**/*.less',
+  styles: 'src/less/*.less',
   images: 'src/img/**/*',
   html: 'src/pages/**/*',
   vendor: 'vendor/**/*',
@@ -169,7 +169,7 @@ gulp.task('release', ['clean', 'build:scripts', 'build:style', 'build:img', 'rev
 // 定义watch任务
 gulp.task('watch', function() {
   gulp.watch(paths.scripts, ['build:scripts']);
-  gulp.watch(paths.styles, ['build:style']);
+  gulp.watch('src/less/**/*.less', ['build:style']);
   gulp.watch(paths.images, ['build:img']);
   gulp.watch(paths.html, ['build:html']);
   gulp.watch(paths.lib, ['copy:lib']);

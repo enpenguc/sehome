@@ -1,0 +1,78 @@
+// 查询单号栏目
+@import "../../mixins/index";
+@import "../../themes/index";
+
+.search-block {
+  width: @page-width;
+  height: 545px;
+  margin: 0 auto;
+  padding-top: 35px;
+  background: #fff url("/img/home-search-gb.png") center bottom no-repeat;
+
+  > .search-wrap {
+    width: 665px;
+    height: 90px;
+    margin: 0 auto;
+  }
+
+  ul.search-tab {
+    padding-left: 10px;
+    .clearfix();
+
+    > li {
+      float: left;
+      width: 100px;
+      height: 28px;
+      line-height: 32px;
+      margin-right: 8px;
+      border-radius: 8px 8px 0 0;
+      background-color: #D7D5D6;
+      color: #676767;
+      text-align: center;
+      font-size: 13px;
+
+      > a {
+        color: inherit;
+      }
+
+      &.active {
+        background-color: #3A7BD5;
+        color: #fff;
+      }
+    }
+  }
+
+  .search-group {
+    height: 64px;
+    border: solid 7px #3A7BD5;
+    border-radius: 8px;
+
+    .input-wrap {
+      float: left;
+      width: 560px;
+      height: 100%;
+
+      > input {
+        width: 100%;
+        height: 100%;
+        padding: 8px 10px;
+        font-size: 18px;
+      }
+    }
+
+    .btn-wrap {
+      float: left;
+      width: 91px;
+      height: 100%;
+
+      > input {
+        border: none;
+        background-color: #3A7BD5;
+        width: 100%;
+        height: 100%;
+        color: #fff;
+        font-size: 20px;
+      }
+    }
+  }
+}
