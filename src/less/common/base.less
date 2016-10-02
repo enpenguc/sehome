@@ -6,6 +6,7 @@
   display: block;
 
   > .se-section-header {
+    // section块的标题栏
     position: relative;
     height: @section-header-height;
     line-height: @section-header-height;
@@ -13,6 +14,7 @@
     .clearfix();
 
     > span {
+      // 标题名字
       display: inline-block;
       position: absolute;
       left: 0;
@@ -20,11 +22,13 @@
       padding: 0 10px;
       height: @section-header-height;
       text-align: center;
+      font-size: 14px;
       color: @section-name-color;
       border-bottom: solid 1px @section-name-border-color;
     }
 
     > a {
+      // 更多链接
       .a(#979998, @link-hover-color,@link-active-color);
       float: right;
       padding-right: 10px;
@@ -32,6 +36,7 @@
   }
 
   > .se-section-block {
+    // 内容块
     .clearfix();
   }
 }

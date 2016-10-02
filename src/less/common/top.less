@@ -5,13 +5,11 @@
 .top-nav {
   background-color: @top-bg-color;
   height: @top-height;
-  // color: @top-color;
   a {
-    // color:@top-color;
     .a(@top-color, @top-link-hover-color, @top-link-active-color);
   }
 
-  a.login-tip {
+  a.lighthigh {
     color: @top-login-tip-color;
   }
 
@@ -26,6 +24,9 @@
 
         a {
           float: left;
+          >.seicon{
+            margin-right: 5px;
+          }
         }
         // 间隔面包线
         .breadcrumb {

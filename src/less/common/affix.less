@@ -1,0 +1,45 @@
+.se-affix {
+  position: fixed;
+  top: 200px;
+  right: 20px;
+  z-index: 99;
+
+  > ul {
+    height: 200px;
+    width: 50px;
+    border: solid 1px #3B7AD7;
+
+    > li {
+      height: 50px;
+
+      .seicon {
+        cursor: pointer;
+      }
+
+      &:hover {
+        .seicon {
+          background-position-x: -494px;
+        }
+      }
+    }
+
+    .se-affix-wx {
+      position: relative;
+
+      > .se-affix-wx-code {
+        display: none;
+        width: 182px;
+        height: 182px;
+        position: absolute;
+        right: 52px;
+        top: 0;
+      }
+
+      &:hover {
+        .se-affix-wx-code {
+          display: block;
+        }
+      }
+    }
+  }
+}
