@@ -1,0 +1,237 @@
+extends layout/default.pug
+block content
+  // 轮播图片、通告
+  .banner-block
+    // 公告
+    .notice-warp
+      .notice
+        .title
+          span.seicon.seicon-notice
+          span 公告
+        ul
+          li
+            a(href='#') 网站使用（普通客户）
+          li
+            a(href='#') 网站使用（大客户）
+          li
+            a(href='#') 增值服务说明
+          li
+            a(href='#') 未预报到库包裹流程处理
+          li
+            a(href='#') 大客户表格填写说明
+          li
+            a(href='#') 身份证上传指南
+          li
+            a(href='#') 网站使用（普通客户）
+          li
+            a(href='#') 网站使用（大客户）
+          li
+            a(href='#') 增值服务说明
+          li
+            a(href='#') 未预报到库包裹流程处理
+          li
+            a(href='#') 大客户表格填写说明
+          li
+            a(href='#') 大客户表格填写说明2
+    // 轮播图片
+    .unslider
+      ul.unslider-wrap
+        li
+          .banner-bg(style="background-image:url('/img/banner/banner_home.jpg');")
+        li
+          .banner-bg(style="background-image:url('/img/banner/wood.jpg');")
+        li
+          .banner-bg(style="background-image:url('/img/banner/subway.jpg');")
+          // <img src="/img/banner/subway.jpg"/>
+        li
+          .banner-bg(style="background-image:url('/img/banner/sunset.jpg');")
+        li
+          .banner-bg(style="background-image:url('/img/banner/wood.jpg');")
+          // <img src="/img/banner/wood.jpg"/>
+
+  // 搜索区域
+  .search-block
+    .search-wrap
+      ul.search-tab
+        li.active 包裹追踪
+        li
+          a(href='#') 价格查询
+      .search-group
+        .input-wrap
+          input(type='text', placeholder='请输入运单号，如“232342453522553” ')
+        .btn-wrap
+          input(type='button', value='查 询')
+
+  // 优惠活动/用户指南
+  .guide-block
+    .inner-block
+      .se-section.activer
+        .se-section-header
+          span 优惠活动
+          a(href="#") 更多&gt;
+        .se-section-block
+          .activer-item
+            .activer-img
+              img(src="/img/activer.png")
+            .activer-name 米饭粒注册送5美元
+            .activer-desc 即日起到2016年12月9日，注册米饭粒即可送5美元，赶紧注册吧！
+            div
+              a(class="activer-link") 查看详情
+          .activer-item
+            .activer-img
+              img(src="/img/activer.png")
+            .activer-name 米饭粒注册送5美元
+            .activer-desc 即日起到2016年12月9日，注册米饭粒即可送5美元，赶紧注册吧！
+            div
+              a(class="activer-link") 查看详情
+          .activer-item
+            .activer-img
+              img(src="/img/activer.png")
+            .activer-name 米饭粒注册送5美元
+            .activer-desc 即日起到2016年12月9日，注册米饭粒即可送5美元，赶紧注册吧！
+            div
+              a(class="activer-link") 查看详情
+      .se-section.guide
+        .se-section-header
+          span 用户指南
+          a(href="#") 更多&gt;
+        .se-section-block
+          ul
+            li
+              div
+                div
+                  a(href="#") 网站使用（普通客户）
+                span 2016-08-09
+            li
+              div
+                div
+                  a(href="#") 网站使用（大客户）
+                span 2016-08-09
+            li
+              div
+                div
+                  a(href="#") 增值服务说明
+                span 2016-08-09
+            li
+              div
+                div
+                  a(href="#") 未预报到库包裹流程处理
+                span 2016-08-09
+            li
+              div
+                div
+                  a(href="#") 大客户表格填写说明大客户表格填写说明,表格填写说明
+                span 2016-08-09
+            li
+              div
+                div
+                  a(href="#") 身份证上传指南,表格填写说明
+                span 2016-08-09
+            li
+              div
+                div
+                  a(href="#") 网站使用（普通客户）网站使用（普通客户）网站使用（普通客户）
+                span 2016-08-09
+            li
+              div
+                div
+                  a(href="#") 网站使用（大客户）
+                span 2016-08-09
+            li
+              div
+                div
+                  a(href="#") 增值服务说明
+                span 2016-08-09
+            li
+              div
+                div
+                  a(href="#") 未预报到库包裹流程处理
+                span 2016-08-09
+            li
+              div
+                div
+                  a(href="#") 大客户表格填写说明
+                span 2016-08-09
+            li
+              div
+                div
+                  a(href="#") 大客户表格填写说明2
+                span 2016-08-09
+
+  // 海淘教程
+  .course-block
+    .inner-block
+      .course-title
+        span.course-title-name 海淘教程
+        hr
+        span.course-title-subname The tutorial
+      .course-content
+        .course-choiceness
+          img(src='/img/haitao.png')
+          .course-choiceness-detail
+            .course-choiceness-mask
+            .course-choiceness-content
+              .course-choiceness-title
+                span.highlight [精选]
+                a 亚马逊优惠购物攻略解读
+              .course-choiceness-desc
+                a 亚马逊日本，是亚马逊在日本的分公司，总部位于美国华盛顿州的西雅图。亚马逊成立于1995年，是网络上最早开始经营...
+        ul
+          li
+            .course-item-name 亚马孙注册教程
+            .course-item-desc 如果你是初次接触海淘的朋友，不妨从美国亚马逊开始吧。原因非常简单，美国亚马逊上淘东西，可以保证是正品！详见美国亚马逊教程系列——在美国亚马逊上海淘的东西有假货吗...&nbsp;&nbsp;[<a>详情</a>]
+          li
+            .course-item-name 亚马孙注册教程
+            .course-item-desc 如果你是初次接触海淘的朋友，不妨从美国亚马逊开始吧。原因非常简单，美国亚马逊上淘东西，可以保证是正品！详见美国亚马逊教程系列——在美国亚马逊上海淘的东西有假货吗...&nbsp;&nbsp;[<a>详情</a>]
+          li
+            .course-item-name 亚马孙注册教程
+            .course-item-desc 如果你是初次接触海淘的朋友，不妨从美国亚马逊开始吧。原因非常简单，美国亚马逊上淘东西，可以保证是正品！详见美国亚马逊教程系列——在美国亚马逊上海淘的东西有假货吗...&nbsp;&nbsp;[<a>详情</a>]
+
+  // 海淘折扣信息
+  .discount-block
+    .inner-block
+      .se-section
+        .se-section-header
+          span 海淘折扣信息
+          a(href='#') 更多&gt;
+        .se-section-block
+          ul
+            li
+              .good-img
+                img(src='/img/good.png')
+              .good-name Philips Norelco 飞利浦Multigroom 5100剃须刀脱毛7件套(模型QG3364/42)包装可能有所不同
+              .good-desc 飞利浦Multigroom 5100剃须刀脱毛7件包装可能有所不同...
+              .good-link
+                a 查看详情
+                a.good-link-to 直达链接
+            li
+              .good-img
+                img(src='/img/good.png')
+              .good-name Philips Norelco 飞利浦Multigroom 5100剃须刀脱毛7件套(模型QG3364/42)包装可能有所不同
+              .good-desc 飞利浦Multigroom 5100剃须刀脱毛7件包装可能有所不同...
+              .good-link
+                a 查看详情
+                a.good-link-to 直达链接
+            li
+              .good-img
+                img(src='/img/good.png')
+              .good-name Philips Norelco 飞利浦Multigroom 5100剃须刀脱毛7件套(模型QG3364/42)包装可能有所不同
+              .good-desc 飞利浦Multigroom 5100剃须刀脱毛7件包装可能有所不同...
+              .good-link
+                a 查看详情
+                a.good-link-to 直达链接
+            li
+              .good-img
+                img(src='/img/good.png')
+              .good-name Philips Norelco 飞利浦Multigroom 5100剃须刀脱毛7件套(模型QG3364/42)包装可能有所不同
+              .good-desc 飞利浦Multigroom 5100剃须刀脱毛7件包装可能有所不同...
+              .good-link
+                a 查看详情
+                a.good-link-to 直达链接
+
+block script
+  script(type='text/javaScript', src='/vendor/unslider/unslider-min.js')
+  script(type='text/javaScript').
+    $(function() {
+      $('.unslider').unslider({animation: 'fade', autoplay: false, arrows: false});
+    })

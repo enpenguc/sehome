@@ -20,6 +20,8 @@ var imagemin = require('gulp-imagemin');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var del = require('del');
+// pug
+var pug = require('gulp-pug');
 // 版本处理
 var rev = require('gulp-rev');
 var revFormatExt = require('./gulp-plugin/gulp-rev-format-ext');
@@ -40,8 +42,9 @@ var paths = {
   scripts: 'src/js/**/*.js',
   styles: 'src/less/*.less',
   images: 'src/img/**/*',
-  html: 'src/pages/**/*',
+  html: 'src/pages/**/*.html',
   vendor: 'vendor/**/*',
+  pugs: 'src/pages/**/*.pug'
 };
 
 var banner = [
@@ -158,13 +161,32 @@ gulp.task('build:html', ['revision'], function() {
     .pipe(gulp.dest(dist));
 });
 
+// 页面处理
+gulp.task('build:pug', ['revision'], function() {
+  var manifest = gulp.src(path.join(dist, "rev-manifest.json"));
+  return gulp.src(paths.pugs, option)
+    // .pipe(changed(dist))
+    .pipe(pug({
+      pretty: true
+    }).on('error', function(e) {
+      console.error(e.message);
+      this.emit('end');
+    }))
+    // .pipe(pug().on('error', pug.logError))
+    // 替换静态资源
+    .pipe(revReplace({
+      manifest: manifest
+    }))
+    .pipe(gulp.dest(dist));
+});
+
 // 清空图片、样式、js
 gulp.task('clean', function() {
   return del.sync('./dist');
 });
 
 // 定义release任务
-gulp.task('release', ['clean', 'build:scripts', 'build:style', 'build:img', 'revision', 'copy:vendor', 'build:html']);
+gulp.task('release', ['clean', 'build:scripts', 'build:style', 'build:img', 'revision', 'copy:vendor', 'build:html', 'build:pug']);
 
 // 定义watch任务
 gulp.task('watch', function() {
@@ -172,6 +194,7 @@ gulp.task('watch', function() {
   gulp.watch('src/less/**/*.less', ['build:style']);
   gulp.watch(paths.images, ['build:img']);
   gulp.watch(paths.html, ['build:html']);
+  gulp.watch(paths.pugs, ['build:pug']);
   gulp.watch(paths.lib, ['copy:lib']);
 });
 

@@ -1,0 +1,27 @@
+doctype html
+html(lang="en")
+  head
+    head
+      meta(charset='utf-8')
+      meta(http-equiv='X-UA-Compatible', content='IE=edge')
+      meta(name='viewport', content='width=device-width, initial-scale=1')
+      // 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！
+      meta(http-equiv='render', content='webkit')
+      title 速翼
+      meta(name='description', content='')
+      // <link rel="icon" href="../favicon.ico">
+      link(rel='shortcut icon', href='/images/favicon.png')
+      // <link rel='stylesheet' href='/vendor/antd/antd.css'/>
+      link(rel='stylesheet', href='/css/se.css')
+  body
+    include ../components/top.pug
+    include ../components/header.pug
+    include ../components/navAffix.pug
+    // 页面内容 - start
+    block content
+    // 页面内容 - end
+    include ../components/footer.pug
+    // 页面script - start
+    script(type='text/javaScript', src='/vendor/jquery/jquery-1.12.3.js')
+    block script
+    // 页面script - end
