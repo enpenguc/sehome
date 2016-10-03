@@ -1,0 +1,26 @@
+@import "./mixins/index";
+@import "./themes/index";
+
+.page-about {
+  .about-banner {
+    width: @page-width;
+    margin: 0 auto;
+    height: 200px;
+    background: url("/img/ab_banner.jpg") no-repeat center top;
+    margin-bottom: 20px;
+  }
+  .se-content{
+    min-height: 300px;
+  }
+  .about-content {
+    padding: 30px;
+
+    .about-item {
+      line-height: 55px;
+
+      .seicon {
+        margin-right: 8px;
+      }
+    }
+  }
+}

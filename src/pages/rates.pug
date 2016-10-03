@@ -1,0 +1,52 @@
+extends layout/default.pug
+block content
+  // 资费说明
+  .se-container.page-retes
+    // 地址导航
+    nav.se-navaddr
+      span
+        span.seicon.seicon-addr
+        span.se-navaddr-link
+          a 首页
+        span.se-navaddr-separator &gt;
+      span
+        span.se-navaddr-link
+          a 资费说明
+        span.se-navaddr-separator &gt;
+      span
+        span.se-navaddr-link.active 标准服务价格
+    .se-content
+      // 左边概要
+      .se-left
+        .se-subject
+          strong 资费标准
+          ul
+            li.active 标准服务价格
+            li
+              a 增值服务价格
+        .se-subject
+          strong 资费相关
+          ul
+            li
+              a 关税解答
+            li
+              a 价格说明
+            li
+              a 2016完税价格表
+            li
+              a 关税补贴打包要求
+      // 右边内容区域
+      .se-right
+        .se-detail
+          .se-detail-header
+            strong 标准服务价格
+            .se-sub-title 发布时间：2016-09-28&emsp;&emsp;&emsp;&emsp;点击量：897人次
+          // 内容区域
+          p.se-detail-content
+            |<table>
+            |    <tr><th>服务类型</th><th>服务价格</th><th>重量计算</th></tr>
+            |    <tr><td>行邮渠道（需省份证）</td><td class="text-center">4.5$/镑<br/>（汇率以网站通知为准，当前6.7）</td><td>按实磅计算，首重一磅</td></tr>
+            |    <tr><td>A渠道</td><td colspan="2" class="text-center">详情请咨询客服<a><span class="seicon seicon-qqtalk-min"></span></a></td></tr>
+            |    <tr><td>关税补贴打包要求</td><td colspan="2" class="text-center"><a>点击看我</a></td></tr>
+            |    <tr><td>完税价格表</td><td colspan="2" class="text-center"><a>点击看我</a></td></tr>
+            | </table>
