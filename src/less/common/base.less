@@ -3,6 +3,7 @@
 @import "../themes/index";
 
 .se-section {
+  // 内容列表section
   display: block;
 
   > .se-section-header {
@@ -22,7 +23,6 @@
       padding: 0 10px;
       height: @section-header-height;
       text-align: center;
-      font-size: 14px;
       color: @section-name-color;
       border-bottom: solid 1px @section-name-border-color;
     }
@@ -38,5 +38,193 @@
   > .se-section-block {
     // 内容块
     .clearfix();
+  }
+}
+// 页面容器
+
+.se-container {
+  background: @page-container-background-color url( '/img/bg.png') repeat-x top left;
+  padding-top: 20px;
+  // 网站地址导航
+  .se-navaddr {
+    width: @page-width;
+    margin: 0 auto;
+    color: @navaddr-color;
+    font-size: @navaddr-font-size;
+    margin-bottom: 5px;
+
+    .seicon {
+      margin-right: 3px;
+    }
+
+    .se-navaddr-link {
+      &.active {
+        color: @navaddr-active-color;
+      }
+
+      > a {
+        .a(@navaddr-link-color, @navaddr-link-hover-color, @navaddr-link-active-color);
+      }
+    }
+
+    .se-navaddr-separator {
+      color: @navaddr-navaddr-separator-color;
+      padding: 0 5px;
+    }
+  }
+  // 页面内容区
+  > .se-content {
+    width: @page-width;
+    margin: 0 auto;
+    min-height: @page-content-min-height;
+    border: solid 1px @page-content-border-color;
+    background: @page-content-background;
+    margin-bottom: 60px;
+    .clearfix();
+
+    > .se-left {
+      float: left;
+      width: 200px;
+    }
+
+    > .se-right {
+      float: right;
+      width: @page-width - 200px - 2px;
+      min-height: @page-content-min-height;
+      border-left: solid 1px @page-content-border-color;
+      padding: 20px;
+    }
+    // 左边主题概要
+    .se-subject {
+      line-height: 30px;
+      padding: 10px 0;
+
+      +.se-subject {
+        border-top: solid 1px @page-content-border-color;
+      }
+
+      strong {
+        color: #0B3A64;
+        font-weight: bold;
+        padding: 0 10px;
+      }
+
+      ul {
+        li {
+          padding: 0 10px;
+          .ellipsis();
+
+          a {
+            .a(@text-color, @link-hover-color, @link-active-color);
+          }
+          // 选中当前行
+          &.active {
+            background: url("/img/seicon.png") -156px -129px;
+            width: 200px;
+            height: 30px;
+            color: #fff;
+          }
+        }
+      }
+    }
+    // 列表
+    .se-list-wrap {
+      margin-bottom: 20px;
+
+      .se-item {
+        // 列表项
+        border-bottom: solid 1px @page-content-border-color;
+        margin-bottom: 10px;
+
+        strong {
+          // 标题
+          font-size: 16px;
+        }
+
+        p {
+          // 内容概要
+          padding: 8px 0;
+        }
+
+        .se-item-extras {
+          // 附件信息
+          color: #999;
+          margin-bottom: 10px;
+        }
+      }
+    }
+    // 分页
+    .se-pagination {
+      text-align: center;
+
+      ul {
+        display: inline-block;
+        .clearfix();
+
+        li {
+          float: left;
+
+          +li {
+            margin-left: 10px;
+          }
+
+          a {
+            display: inline-block;
+            padding: 0 10px;
+            font-size: 16px;
+            height: 30px;
+            line-height: 30px;
+            border: solid 1px #ccc;
+            color: @text-color;
+
+            &:hover {
+              color: #2a6496;
+              background-color: #eee;
+              border-color: #ddd;
+            }
+          }
+
+          &.active {
+            // 选中
+            a {
+              background: #2472BA;
+              border-color: #2472BA;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+    // 明细
+    .se-detail {
+      padding: 10px;
+      // 新闻公告明细区域
+      .se-detail-header {
+        // 标题头
+        border-bottom: solid 1px @page-content-border-color;
+        margin-bottom: 15px;
+
+        strong {
+          // 标题
+          font-size: 16px;
+        }
+
+        .se-sub-title {
+          color: #999999;
+          margin: 10px 0;
+        }
+      }
+
+      .se-detail-content {
+        // 内容
+        line-height: 1.8em;
+        margin-bottom: 15px;
+      }
+
+      .se-detail-footer {
+        // 内容页脚，发布者/时间信息
+        text-align: right;
+      }
+    }
   }
 }
