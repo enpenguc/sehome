@@ -1,0 +1,78 @@
+@import "./mixins/index";
+@import "./themes/index";
+
+.page-prohibited {
+  .prohibited-banner {
+    width: @page-width;
+    margin: 0 auto;
+    height: 160px;
+    background: url("/img/jinyun_banner.jpg") no-repeat -20px top;
+    margin-bottom: 20px;
+  }
+  .se-content{
+    border-style: none;
+    background-color: transparent;
+    overflow: visible;
+    .inner-content{
+      width: @page-width + 40px;
+    }
+  }
+  .col-4 {
+    width: (@page-width + 20px) / 3;
+    float: left;
+    padding-right: 20px;
+  }
+
+  .prohibited-item {
+    border: solid 1px #ccc;
+    padding: 10px;
+    background-color: #fff;
+    margin-bottom: 20px;
+
+    .articles-img {
+      width: 125px;
+      height: 125px;
+      overflow: hidden;
+      border: solid 1px #ccc;
+      float: left;
+      margin-right: 10px;
+      margin-bottom: 10px;
+
+      > img {
+        width: 100%;
+        max-height: 100%;
+      }
+    }
+
+    .articles-name {
+      color: #FF3234;
+      font-size: 18px;
+    }
+
+    p {
+      max-height: 80px;
+      overflow: hidden;
+    }
+
+    .articles-more {}
+
+    .articles-less {
+      display: none;
+    }
+
+    &.all {
+      p {
+        max-height: none;
+        display: inline;
+      }
+
+      .articles-more {
+        display: none;
+      }
+
+      .articles-less {
+        display: inline;
+      }
+    }
+  }
+}
