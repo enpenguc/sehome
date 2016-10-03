@@ -1,0 +1,156 @@
+@import "./mixins/index";
+@import "./themes/index";
+
+.page-discount-list {
+  // 海淘折扣列表
+  .discount-wrap {
+    padding: 40px 20px;
+  }
+
+  ul {
+    // 商品列表
+    > li {
+      // 商品详情
+      width: 500px;
+      height: 230px;
+      margin-bottom: 20px;
+      margin-right: 20px;
+      float: left;
+      border: solid 1px #E4E4E4;
+      padding: 10px;
+      line-height: 1.8em;
+
+      &:hover {
+        border: solid 2px #6CB6F7;
+      }
+
+      > .good-img {
+        // 商品图片
+        width: 180px;
+        height: 180px;
+        float: left;
+
+        > img {
+          width: 100%;
+          max-height: 100%;
+        }
+      }
+
+      .good-readme {
+        // 商品说明
+        float: right;
+        width: 290px;
+
+        > .good-name {
+          font-weight: bold;
+          .ellipsis();
+        }
+
+        > .good-sub-name {
+          color: #6C9CCA;
+          font-size: 12px;
+          border-bottom: solid 1px #ccc;
+          .ellipsis();
+        }
+
+        > .good-desc {
+          font-size: 13px;
+        }
+
+        > .good-link {
+          text-align: left;
+          padding-top: 10px;
+
+          > a {
+            border: solid 1px #000;
+            display: inline-block;
+            width: 72px;
+            height: 22px;
+            line-height: 22px;
+            color: #000;
+            text-align: center;
+          }
+
+          > .good-link-to {
+            margin-left: 8px;
+            background-color: #000;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+
+.page-discount-detail {
+  // 海淘折扣详情
+  .goods-detail {
+    padding: 30px 20px;
+
+    .goods-header {
+      padding-bottom: 10px;
+      border-bottom: solid 1px #ccc;
+
+      .goods-name {
+        text-align: left;
+        font-weight: bold;
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      .goods-sub-name {
+        color: #6C9CCA;
+      }
+    }
+
+    .goods-content {
+      padding: 30px 0;
+
+      .goods-summary {
+        width: 500px;
+        border: solid 2px #9EC7FB;
+        padding: 15px;
+        margin-bottom: 20px;
+        .clearfix();
+
+        .goods-img {
+          // 商品图片
+          width: 180px;
+          height: 180px;
+          border: solid 1px #ccc;
+          float: left;
+
+          > img {
+            width: 100%;
+            max-height: 100%;
+          }
+        }
+
+        .goods-desc,
+        .goods-link {
+          float: right;
+          width: 265px;
+        }
+
+        .goods-desc {
+          margin-bottom: 30px;
+        }
+
+        .goods-link {
+          > a {
+            display: inline-block;
+            width: 138px;
+            height: 40px;
+            line-height: 40px;
+            color: #fff;
+            background-color: #F93B3B;
+            text-align: center;
+            border-radius: 5px;
+          }
+        }
+      }
+
+      > p {}
+    }
+  }
+}

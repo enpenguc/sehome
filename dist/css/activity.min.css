@@ -1,0 +1,6 @@
+/*!
+ * sehome v1.0.0 - build @2016-10-03 
+ * se website
+ * Author: 冯恩鹏<enpenguc@163.com> 
+ * https://github.com/enpenguc/sehome
+ */.page-activity .activer{padding:20px}.page-activity .activer .activer-item{width:250px;height:310px;overflow:hidden;padding:15px 10px;float:left}.page-activity .activer .activer-item+.activer-item{margin-left:15px}.page-activity .activer .activer-item>.activer-img{height:168px}.page-activity .activer .activer-item>.activer-img>img{width:100%;max-height:100%}.page-activity .activer .activer-item .activer-name{font-size:14px;line-height:30px;font-weight:700}.page-activity .activer .activer-item .activer-desc{line-height:1.8em}.page-activity .activer .activer-item .activer-link{display:block;width:130px;height:30px;line-height:30px;border-radius:15px;background-color:#2c90de;color:#fff;text-align:center;margin:10px auto}.page-activity .activer .activer-item .activer-link.disabled{background-color:#333;cursor:default}

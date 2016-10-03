@@ -1,0 +1,61 @@
+extends layout/default.pug
+block content
+  // 用户指南
+  .se-container
+    // 地址导航
+    nav.se-navaddr
+      span
+        span.seicon.seicon-addr
+        span.se-navaddr-link
+          a 首页
+        span.se-navaddr-separator &gt;
+      span
+        span.se-navaddr-link.active 用户指南
+    .se-content
+      // 左边概要
+      .se-left
+        .se-subject
+          strong 新手帮助
+          ul
+            li.active 常见问题
+            li
+              a(href='#') 网站使用（普通客户）
+            li
+              a(href='#') 网站使用（大客户）
+            li
+              a(href='#') 增值服务说明
+            li
+              a(href='#') 未预报到库包裹流程处理
+            li
+              a(href='#') 大客户表格填写说明
+        .se-subject
+          strong 用户协议
+          ul
+            li
+              a 速翼网站使用条款
+            li
+              a 速翼转运赔偿协议
+      // 右边内容区域
+      .se-right
+        .se-detail
+          .se-detail-header
+            strong 常见问题
+            .se-sub-title 发布时间：2016-09-28&emsp;&emsp;&emsp;&emsp;点击量：827人次
+          // 内容区域
+          p.se-detail-content
+            |1.转运说明：
+            <br/><br/>注册USZCN.COM，得到美国收货地址。海购时填写USZCN提供给您的地址。商家发货后登陆USZCN完成快递单号入库操作。 USZCN签收后并称重，用户得到短信，此时可以登录USZCN进行出库（发往国内）的操作，并计算费用。
+            <br/><br/>2.购物信用卡：
+            <br/>海外商家对信用卡有较高要求，海外购物需要使用国际信用卡，俗称双币卡，卡面带有（银联、VISA、万事达、JCB、美国运通和大莱）标志。国内的双币信用卡支持美国大部分的商家网站。
+            <br/><br/>3.账单地址：
+            <br/>填写您使用的消费卡所在地的账单地址，务必准确填写。如果不能完成国内账单地址，或者不支持国内账单地址，可以使用我们的仓库地址为账单地址。
+            <br/><br/>4.海外快递单号：
+            <br/>快递单号应该在订单邮件后的1-3天内收到发货邮件 或者去您的购物网站个人账户中查找。 邮件中：tracking number后面的号码就是。
+            <br/><br/>5.亚马逊海淘：
+            <br/>注册我们后，就在亚马逊买购物时填写我们美国收货地址。这里是教程：http://www.uszcn.com/Help.aspx?tid=32
+            <br/><br/>6.目前出税商品：
+            <br/>请您参考：相机200元，手机300-500元，笔记本200-800元，ipad200-500元，电子书88-208元，奶粉一箱60元，其他商品出税情况不常见。
+            <br/><br/>7.海外折扣代码获取：
+            <br/>打开网站 http://dealspl.us/  然后把你要买的商品网站的网址输入到搜索框，回车即可。
+            <br/><br/>8.国内外尺码对照表：
+            <br/>国内外的服装鞋帽，内衣配饰等号码对照表。更多请查看：http://www.uszcn.com/GongJu.aspx请您参考，海外不同商家尺码可能存在不同，该尺码仅供参考。
