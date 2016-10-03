@@ -1,0 +1,37 @@
+extends layout/default.pug
+block content
+  // API接口
+  .se-container.page-api
+    nav.se-navaddr
+      span
+        span.seicon.seicon-addr
+        span.se-navaddr-link
+          a 首页
+        span.se-navaddr-separator &gt;
+      span
+        span.se-navaddr-link.active API接口
+    .api-banner
+    .se-content
+      .api-detail
+        .api-title 速翼API接口使用说明
+        .api-item-name
+          span 1.接口类型
+        .api-item-detail
+          | <table>
+          |    <tr><th>借口名称</th><th>借口Id</th></tr>
+          |    <tr><td>订阅单号借口</td><td>subscribereq</td></tr>
+          |    <tr><td>物流信息推送接口</td><td>orderpushreq</td></tr>
+          |    <tr><td>包裹预报接口</td><td>ordereq</td></tr>
+          |  </table>
+        .api-item-name
+          span 2.接口介绍
+        .api-item-detail
+          | <table>
+          |    <tr><td class="nowrap">订阅单号借口</td><td>由客户发起，客户通过订阅单号接口向速翼网订阅国外段物流信息，或速翼段物流信息（速翼段物流信息，即为速翼仓库开始的物流信息）由客户发起，客户通过订阅单号接口向速翼网订阅国外段物流信息，或速翼段物流信息（速翼段物流信息，即为速翼仓库开始的物流信息）</td></tr>
+          |    <tr><td class="nowrap">物流信息推送接口</td><td>由速翼网发起，由客户发起，客户通过订阅单号接口向速翼网订阅国外段物流信息，或速翼段物流信息（速翼段物流信息，即为速翼仓库开始的物流信息）</td></tr>
+          |    <tr><td class="nowrap">包裹预报接口</td><td>由客户发起，客户通过订阅单号接口向速翼网订阅国外段物流信息，或速翼段物流信息（速翼段物流信息，即为速翼仓库开始的物流信息）由客户发起，客户通过订阅单号接口向速翼网订阅国外段物流信息，或速翼段物流信息（速翼段物流信息，即为速翼仓库开始的物流信息）</td></tr>
+          |  </table>
+        .api-item-name
+          span 3.接口合作流程
+        .api-item-detail
+          span 客户联系客服&nbsp;--&gt;&nbsp;签订合作协议&nbsp;--&gt;&nbsp;速翼发送接口技术文档给客户&nbsp;--&gt;&nbsp;客户开发调试&nbsp;--&gt;&nbsp;客户正式使用接口
