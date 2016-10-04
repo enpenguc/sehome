@@ -1,0 +1,49 @@
+extends layout/default.pug
+block content
+  // 注册
+  .se-container.page-register
+    .main-wrap
+      .wrap-mask
+      .wrap-mask2
+      .main-content
+        .main-title 注册速翼
+        form.se-form
+          .se-form-item
+            .se-form-label 用户名：
+            .se-form-control.has-icon
+              input(type="text" class="se-input" placeholder="邮箱/手机号码")
+              span.seicon.seicon-user
+          .se-form-item
+            .se-form-label 密码：
+            .se-form-control.has-icon
+              input(type="password" class="se-input" placeholder="设置登录密码")
+              span.seicon.seicon-lock
+          .se-form-item.se-form-item-help
+            .se-form-label 手机号码：
+            .se-form-control.has-icon.has-error
+              input(type="text" class="se-input" style="width:185px;")
+              input(type="button" class="btn-code" value="获取手机验证码")
+              span.seicon.seicon-phone
+              .se-form-explain 手机号码不能为空----错误提示例子
+          .se-form-item
+            .se-form-label 手机验证码：
+            .se-form-control
+              input(type="text" class="se-input" style="width:138px;")
+          .se-form-item
+            .se-form-label 验证码：
+            .se-form-control(style="width: 450px;")
+              input(type="text" class="se-input" style="width:138px;")
+              img(src="/img/captcha.png" align="absmiddle" style="width: 90px;height: 30px; vertical-align: middle; margin: 0 5px;")
+              span 看不清楚，<a>换一张</a>
+          .se-form-item.mb-min
+            .se-form-label
+            .se-form-control
+              span.info 点击注册，表示我已阅读并接受《用户服务协议》
+          .se-form-item.mb-min
+            .se-form-label
+            .se-form-control
+              input(type="submit" class="btn-primary" value="注 册")
+          .se-form-item
+            .se-form-label
+            .se-form-control
+              span.info 我已经有速翼账号？<a href="">立即登陆</a>

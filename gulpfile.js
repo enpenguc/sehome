@@ -3,6 +3,8 @@ var fs = require('fs');
 var yargs = require('yargs').argv;
 var gulp = require('gulp');
 var changed = require('gulp-changed');
+var debug = require('gulp-debug');
+var plumber = require('gulp-plumber');
 var header = require('gulp-header');
 var rename = require('gulp-rename');
 var sourcemaps = require('gulp-sourcemaps');
@@ -34,7 +36,7 @@ var url = require('url');
 var pkg = require('./package.json');
 
 var option = {
-  base: './src',
+  base: './src'
 };
 var dist = __dirname + '/dist';
 
@@ -62,6 +64,10 @@ var banner = [
 gulp.task('build:scripts', function() {
   // 合并压缩js
   return gulp.src(paths.scripts, option)
+    .pipe(changed(dist))
+    .pipe(debug({
+      title: 'debug build:scripts:'
+    }))
     .pipe(sourcemaps.init())
     .pipe(concat('js/all.js'))
     .pipe(header(banner, {
@@ -86,13 +92,35 @@ gulp.task('build:scripts', function() {
 
 // 编译样式
 gulp.task('build:style', function() {
-  return gulp.src(paths.styles, option)
+  return gulp.src(paths.styles, {
+      base: './src/less'
+    })
+    // .pipe(plumber())
+    .pipe(changed("./dist/css", {
+      extension: '.css',
+      // https://www.npmjs.com/package/gulp-changed#example
+      // https://github.com/gulpjs/vinyl#filerelative
+      hasChanged: function(stream, cb, sourceFile, newPath) {
+        if (sourceFile.relative === "se.less") {
+          stream.push(sourceFile);
+          cb();
+        } else {
+          changed.compareLastModifiedTime(stream, cb, sourceFile, newPath);
+        }
+      }
+    }))
+    .pipe(debug({
+      title: 'debug build:style:'
+    }))
     .pipe(sourcemaps.init())
     .pipe(less().on('error', function(e) {
       console.error(e.message);
       this.emit('end');
     }))
-    .pipe(postcss([autoprefixer]))
+    .pipe(postcss([autoprefixer]).on('error', function(e) {
+      console.error(e.message);
+      this.emit('end');
+    }))
     .pipe(header(banner, {
       pkg: pkg
     }))
@@ -101,11 +129,11 @@ gulp.task('build:style', function() {
       extensionsAllowed: ['.gif', '.jpg', ".png"]
     }))
     .pipe(sourcemaps.write())
-    .pipe(rename(function(path) {
-      path.dirname = path.dirname.replace('less', 'css');
-    }))
+    // .pipe(rename(function(path) {
+    //   path.dirname = path.dirname.replace('less', 'css');
+    // }))
     // .pipe(rev())
-    .pipe(gulp.dest(dist))
+    .pipe(gulp.dest("./dist/css"))
     .pipe(browserSync.reload({
       stream: true
     }))
@@ -113,9 +141,11 @@ gulp.task('build:style', function() {
     .pipe(rename(function(path) {
       path.basename += '.min';
     }), {
-      dirname: 'css'
+      // dirname: 'css'
     })
-    .pipe(gulp.dest(dist))
+    .pipe(gulp.dest("./dist/css"))
+    // .pipe(concat('all.css'))
+    // .pipe(gulp.dest("./dist/css"))
     // .pipe(rev.manifest({
     //   merge: true
     // }))
@@ -126,6 +156,9 @@ gulp.task('build:style', function() {
 gulp.task('build:img', function() {
   return gulp.src(paths.images, option)
     .pipe(changed(dist))
+    .pipe(debug({
+      title: 'debug build:img:'
+    }))
     // .pipe(imagemin())
     .pipe(gulp.dest(dist));
 });
@@ -135,6 +168,10 @@ gulp.task('copy:vendor', function() {
   return gulp.src(paths.vendor, {
       base: "./"
     })
+    .pipe(changed(dist))
+    .pipe(debug({
+      title: 'debug copy:vendor:'
+    }))
     .pipe(gulp.dest(dist));
 });
 
@@ -143,6 +180,10 @@ gulp.task("revision", ['build:scripts', 'build:style', 'build:img', 'copy:vendor
   return gulp.src(["dist/**/*.css", "dist/**/*.js"], {
       // base: "./dist"
     })
+    .pipe(changed(dist))
+    .pipe(debug({
+      title: 'debug revision:'
+    }))
     .pipe(rev())
     .pipe(revFormatExt())
     .pipe(rev.manifest())
@@ -154,6 +195,9 @@ gulp.task('build:html', ['revision'], function() {
   var manifest = gulp.src(path.join(dist, "rev-manifest.json"));
   return gulp.src(paths.html, option)
     .pipe(changed(dist))
+    .pipe(debug({
+      title: 'debug build:html:'
+    }))
     // 替换静态资源
     .pipe(revReplace({
       manifest: manifest
@@ -163,9 +207,18 @@ gulp.task('build:html', ['revision'], function() {
 
 // 页面处理
 gulp.task('build:pug', ['revision'], function() {
+  gulp.start("watch:pug");
+});
+
+gulp.task('watch:pug', function() {
   var manifest = gulp.src(path.join(dist, "rev-manifest.json"));
   return gulp.src(paths.pugs, option)
-    // .pipe(changed(dist))
+    .pipe(changed(dist, {
+      extension: '.html'
+    }))
+    .pipe(debug({
+      title: 'debug build:pug:'
+    }))
     .pipe(pug({
       pretty: true
     }).on('error', function(e) {
@@ -178,7 +231,7 @@ gulp.task('build:pug', ['revision'], function() {
       manifest: manifest
     }))
     .pipe(gulp.dest(dist));
-});
+})
 
 // 清空图片、样式、js
 gulp.task('clean', function() {
@@ -194,7 +247,7 @@ gulp.task('watch', function() {
   gulp.watch('src/less/**/*.less', ['build:style']);
   gulp.watch(paths.images, ['build:img']);
   gulp.watch(paths.html, ['build:html']);
-  gulp.watch(paths.pugs, ['build:pug']);
+  gulp.watch(paths.pugs, ['watch:pug']);
   gulp.watch(paths.lib, ['copy:lib']);
 });
 

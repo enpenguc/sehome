@@ -1,0 +1,116 @@
+@import "./mixins/index";
+@import "./themes/index";
+@register-content-width: 680px;
+@register-content-height: 600px;
+
+.page-register {
+  background: url("/img/login_bg.jpg") no-repeat center top;
+  background-size: cover;
+  padding: 50px 0;
+  height: @register-content-height + 100px;
+
+  .main-wrap {
+    width: @register-content-width;
+    height: @register-content-height;
+    margin: 0 auto;
+    position: relative;
+    // 底图，做透明边框
+    .wrap-mask {
+      position: absolute;
+      z-index: 2;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      opacity: 0.2;
+    }
+
+    .wrap-mask2 {
+      position: absolute;
+      z-index: 5;
+      left: 4px;
+      top: 4px;
+      width: @register-content-width - 8px;
+      height: @register-content-height - 8px;
+      background-color: #fff;
+      opacity: 0.75;
+    }
+
+    .main-content {
+      position: absolute;
+      z-index: 9;
+      left: 4px;
+      top: 4px;
+      width: @register-content-width - 8px;
+      height: @register-content-height - 8px;
+
+      > .main-title {
+        font-size: 22px;
+        padding: 40px 0;
+        text-align: center;
+      }
+
+      .se-form-item {
+        .se-form-label {
+          width: 185px;
+          float: left;
+        }
+
+        .se-form-control {
+          width: 310px;
+          float: left;
+          position: relative;
+
+          > .se-input {
+            width: 100%;
+          }
+
+          &.has-icon {
+            .se-input {
+              padding-left: 28px;
+            }
+          }
+
+          .seicon {
+            // 图标
+            position: absolute;
+            left: 6px;
+            top: 6px;
+            z-index: 9;
+          }
+
+          .btn-primary {
+            // 注册按钮
+            width: 215px;
+            height: 40px;
+            line-height: 40px;
+            color: #fff;
+            background-color: #1F79D9;
+            border: solid 1px #1F79D9;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+
+          .btn-code {
+            background-color: #E5E5E5;
+            border: solid 1px #ccc;
+            padding: 0 10px;
+            height: 30px;
+            line-height: 30px;
+            cursor: pointer;
+          }
+
+          .info {
+            color: #989898;
+            font-size: 12px;
+          }
+        }
+
+        &.mb-min {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}

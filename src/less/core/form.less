@@ -1,0 +1,61 @@
+@import "../themes/index";
+@import "../mixins/index";
+
+.se-form {
+  // 表单
+  .se-form-item {
+    margin-bottom: 25px;
+    // 表单项
+    .clearfix();
+
+    .se-form-label {
+      float: left;
+      width: 200px;
+      //  表单label
+      text-align: right;
+      padding-top: 5px;
+    }
+
+    .se-form-control {
+      float: left;
+      width: 400px;
+      display: inline-block;
+      text-align: left;
+      // 表单输入框
+      .se-input {
+        width: 100%;
+      }
+      // 存在错误
+      &.has-error {
+        .se-input {
+          border-color: #FF5500;
+        }
+        // 异常
+        .se-form-explain {
+          display: block;
+          color: #FF5500;
+        }
+      }
+    }
+    // 提示或者错误
+    .se-form-explain {
+      display: none;
+      // font-size: 13px;
+      text-align: left;
+      line-height: 25px;
+    }
+    // 显示提示或者错误
+    &.se-form-item-help {
+      margin-bottom: 0;
+      .se-form-explain {
+        display: block;
+      }
+    }
+  }
+}
+
+.se-input {
+  height: 30px;
+  padding: 3px 5px;
+  border: solid 1px #CCCCCC;
+}
