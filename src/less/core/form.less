@@ -25,6 +25,20 @@
       .se-input {
         width: 100%;
       }
+
+      .seicon {
+        // 图标
+        position: absolute;
+        left: 6px;
+        top: 6px;
+        z-index: 9;
+      }
+
+      &.has-icon {
+        .se-input {
+          padding-left: 28px;
+        }
+      }
       // 存在错误
       &.has-error {
         .se-input {
@@ -32,13 +46,13 @@
         }
         // 异常
         .se-form-explain {
-          display: block;
           color: #FF5500;
         }
       }
     }
     // 提示或者错误
-    .se-form-explain {
+    .se-form-explain,
+    .se-form-info {
       display: none;
       // font-size: 13px;
       text-align: left;
@@ -47,6 +61,7 @@
     // 显示提示或者错误
     &.se-form-item-help {
       margin-bottom: 0;
+      .se-form-info,
       .se-form-explain {
         display: block;
       }

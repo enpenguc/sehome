@@ -32,18 +32,16 @@ block content
           .se-form-item
             .se-form-label 验证码：
             .se-form-control(style="width: 450px;")
-              input(type="text" class="se-input" style="width:138px;")
+              input(type="text" class="se-input" style="width:138px;" placeholder="输入右侧的验证码")
               img(src="/img/captcha.png" align="absmiddle" style="width: 90px;height: 30px; vertical-align: middle; margin: 0 5px;")
               span 看不清楚，<a>换一张</a>
-          .se-form-item.mb-min
+          .se-form-item.se-form-item-help
             .se-form-label
             .se-form-control
               span.info 点击注册，表示我已阅读并接受《用户服务协议》
-          .se-form-item.mb-min
+          .se-form-item.se-form-item-help
             .se-form-label
             .se-form-control
               input(type="submit" class="btn-primary" value="注 册")
-          .se-form-item
-            .se-form-label
-            .se-form-control
-              span.info 我已经有速翼账号？<a href="">立即登陆</a>
+              .se-form-info
+                span 已有速翼账号？<a href="">立即登陆</a>
