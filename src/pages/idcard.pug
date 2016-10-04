@@ -1,0 +1,60 @@
+extends layout/default.pug
+block content
+  // 上传身份证
+  .se-container.page-idcard
+    nav.se-navaddr
+      span
+        span.seicon.seicon-addr
+        span.se-navaddr-link
+          a 首页
+        span.se-navaddr-separator &gt;
+      span
+        span.se-navaddr-link.active 上传身份证信息
+    .se-content
+      .idcard-content
+        .idcard-title 上传身份证信息
+        .idcard-introduce
+          | <span class="highlight">说明：</span><br/>
+          | 1.证件照只供海关清关使用，请上传真实有效的证件图片；所上传的身份证人名要与收件人一致。<br/>
+          | 2.请将身份证正面与反面单独分开上传；若自己添加水印，请勿遮挡身份证中信息及头像；请保持四角齐全，尽量清晰，不要有反光，缺损。<br/>
+          | 3.图片格式为jpg或jpeg或png，大写尽量控制在600k以内。
+        form.se-form
+          .se-form-item
+            .se-form-label 运单号（选填）：
+            .se-form-control
+              input(type="text" class="se-input")
+          .se-form-item.se-form-item-help
+            .se-form-label 手机号（选填）：
+            .se-form-control
+              input(type="password" class="se-input")
+              .se-form-info <span class="seicon seicon-info"></span>运单号与手机号选填一项即可，若填运单号系统会自动匹配手机号
+          .se-form-item(style="margin-top: 25px;")
+            .se-form-label 姓名（必填）：
+            .se-form-control
+              input(type="text" class="se-input" style="width: 135px;")
+          .se-form-item
+            .se-form-label 身份证号（必填）：
+            .se-form-control
+              input(type="text" class="se-input")
+          .se-form-item
+            .se-form-label 身份证照片上传（必填）：
+            .se-form-control
+              .upload-wrap
+                .upload-img
+                .upload-name 正面
+              .upload-wrap
+                .upload-img
+                .upload-name 反面
+          .se-form-item
+            .se-form-label
+            .se-form-control
+              input(type="submit" class="btn-primary")
+      // 证件照范例
+      .idcard-example
+        .example-title 证件照范例
+        .example-item
+          .example-img
+          .example-name 正面
+        .example-item
+          .example-img.fm
+          .example-name 反面

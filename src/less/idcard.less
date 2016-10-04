@@ -1,0 +1,121 @@
+@import "./mixins/index";
+@import "./themes/index";
+
+.page-idcard {
+  .se-content {
+    padding: 30px;
+    .clearfix();
+  }
+
+  .idcard-content {
+    float: left;
+    width: 700px;
+
+    .idcard-title {
+      color: #2472BA;
+      font-size: 16px;
+      line-height: 1em;
+      border-left: solid 2px #2472BA;
+      padding-left: 10px;
+      margin-bottom: 10px;
+    }
+
+    .idcard-introduce {
+      border: solid 1px #B7D8B9;
+      background-color: #EAF8EB;
+      padding: 10px;
+      line-height: 1.8em;
+      margin-bottom: 30px;
+
+      > .highlight {
+        color: #FE0000;
+      }
+    }
+
+    .se-form {
+      .se-form-item {}
+
+      .se-form-label {
+        width: 170px;
+      }
+
+      .se-form-control {
+        width: 520px;
+        padding-left: 10px;
+
+        .seicon {
+          margin-right: 3px;
+        }
+
+        > .se-input {
+          width: 280px;
+        }
+      }
+    }
+
+    .upload-wrap {
+      float: left;
+
+      +.upload-wrap {
+        margin-left: 40px;
+      }
+
+      > .upload-img {
+        width: 200px;
+        height: 200px;
+        background: url('/img/up.png') no-repeat 0 0;
+        background-size: 100% 100%;
+      }
+
+      .upload-name {
+        text-align: center;
+        height: 35px;
+        line-height: 35px;
+      }
+    }
+    // 提交按钮
+    .btn-primary {
+      width: 135px;
+      height: 40px;
+      line-height: 40px;
+      background-color: #0090FF;
+      border: solid 1px #0090FF;
+      border-radius: 3px;
+      color: #fff;
+    }
+  }
+  // 证件照范例
+  .idcard-example {
+    width: 300px;
+    margin-top: 10px;
+    padding-left: 20px;
+    float: right;
+    border-left: solid 1px @page-content-border-color;
+
+    .example-title {
+      text-align: left;
+      margin-bottom: 10px;
+    }
+
+    .example-item {
+      width: 250px;
+      margin-bottom: 15px;
+
+      .example-img {
+        width: 250px;
+        height: 160px;
+        background: url("/img/fanli.png") no-repeat center center;
+
+        &.fm {
+          background-image: url("/img/fanli2.png");
+        }
+      }
+
+      .example-name {
+        text-align: center;
+        height: 30px;
+        line-height: 30px;
+      }
+    }
+  }
+}
