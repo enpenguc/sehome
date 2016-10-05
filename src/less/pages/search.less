@@ -1,0 +1,166 @@
+@import "../mixins/index";
+@import "../themes/index";
+/* 包裹搜索 */
+.page-search {
+  // 搜索框
+  .search-input-wrap {
+    width: 650px;
+    height: 80px;
+    border: solid 1px #789DD0;
+    padding: 1px;
+    margin: 0 auto;
+
+    .se-input-wrap {
+      width: 550px;
+      float: left;
+
+      .se-input {
+        width: 100%;
+        height: 76px;
+        resize: none;
+        border-style: none;
+        outline-style: none;
+      }
+    }
+
+    .btn-primary {
+      float: right;
+      border: solid 1px #669FE3;
+      background-color: #3581D7;
+      color: #fff;
+      text-align: center;
+      font-size: 22px;
+      width: 90px;
+      height: 76px;
+    }
+  }
+  //记录
+  .search-results {
+    padding: 30px;
+
+    .record-wrap {
+      margin-bottom: 20px;
+      // 记录的头行
+      .record-title {
+        position: relative;
+        height: 30px;
+        line-height: 30px;
+        background-color: #DFDDDE;
+        border-bottom: solid 2px #CCCCCC;
+        padding-left: 30px;
+        padding-right: 10px;
+
+        .seicon {
+          position: absolute;
+          right: 20px;
+          top: 7px;
+          cursor: pointer;
+        }
+
+        .seicon-arrows-right {
+          display: none;
+        }
+
+        .seicon-arrows-down {
+          display: inline-block;
+        }
+      }
+
+      .record-content {
+        display: none;
+        position: relative;
+        padding: 35px 30px;
+        border: solid 1px #155DC3;
+        border-top-style: none;
+        // 时间线
+        .time-line {
+          position: absolute;
+          top: 10px;
+          height: 85%;
+          width: 4px;
+          background-color: #DFDFDF;
+        }
+
+        .record-item {
+          margin-bottom: 20px;
+
+          &.active {
+            .record-item-detail,
+            .record-item-time {
+              color: #3A7BD5;
+            }
+
+            .record-item-detail {
+              font-weight: bold;
+            }
+          }
+
+          .record-item-detail,
+          .record-item-time {
+            padding-left: 50px;
+          }
+
+          .record-item-time {
+            position: relative;
+            color: #999;
+
+            .record-item-time-point {
+              /* 时间上的点 */
+              position: absolute;
+              left: 0;
+              top: 0;
+              height: 18px;
+              width: 9px;
+              display: inline-block;
+              background-color: #fff;
+
+              &:before {
+                position: absolute;
+                content: " ";
+                background-color: #43C9FC;
+                width: 10px;
+                height: 10px;
+                border-radius: 11px;
+                top: 4px;
+                left: -3px;
+              }
+            }
+            // new
+            .record-item-new {
+              /* new */
+              position: absolute;
+              display: inline-block;
+              left: 10px;
+              height: 18px;
+              line-height: 18px;
+              padding: 0 2px;
+              background-color: #3A7BD5;
+              color: #fff;
+              font-size: 12px;
+            }
+          }
+        }
+      }
+
+      &.open {
+        .record-title {
+          background-color: #3A7BD5;
+          border-bottom-color: #155DC3;
+          color: #F7F4EF;
+
+          .seicon-arrows-right {
+            display: inline-block;
+          }
+
+          .seicon-arrows-down {
+            display: none;
+          }
+        }
+
+        .record-content {
+          display: block;
+        }
+      }
+    }
+  }
+}

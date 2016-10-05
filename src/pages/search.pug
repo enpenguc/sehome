@@ -1,0 +1,91 @@
+extends layout/default.pug
+block content
+  // 包裹搜索页
+  .se-container.page-search
+    // 地址导航
+    nav.se-navaddr
+      span
+        span.seicon.seicon-addr
+        span.se-navaddr-link
+          a 首页
+        span.se-navaddr-separator &gt;
+      span
+        span.se-navaddr-link.active 包裹搜索页
+    .se-content
+      // 左边菜单
+      .se-left
+        .se-subject
+          strong 我要查询
+          ul
+            li.active 包裹跟踪
+            li
+              a 价格搜索
+      // 右边内容区域
+      .se-right
+        .search-input-wrap
+          .se-input-wrap
+            textarea(class="se-input" placeholder="请输入订单号，最多10个")
+          input(type="button" class="btn-primary" value="搜 索")
+        .search-results
+          .record-wrap.open
+            .record-title
+              | 运单号：23953093503530&emsp;&emsp;&emsp;&emsp;发货中&emsp;&emsp;&emsp;&emsp;收寄地址：广东东莞--湖南株洲
+              span.seicon.seicon-arrows-right
+              span.seicon.seicon-arrows-down
+            .record-content
+              .time-line
+              .record-item.active
+                .record-item-time
+                  span.record-item-time-point
+                  span.record-item-new NEW
+                  | 2016年8月23日 下午8:44:06
+                .record-item-detail 在广东东莞南城区公司周溪站分布进行签收扫描，快件已被 已签收 签收
+              .record-item
+                .record-item-time <span class="record-item-time-point"></span> 2016年8月22日 下午6:04:36
+                .record-item-detail 在广东东莞南城区公司周溪站分布进行签收扫描
+              .record-item
+                .record-item-time <span class="record-item-time-point"></span> 2016年8月22日 下午2:45:29
+                .record-item-detail 在广东东莞南城区公司周溪站分布进行签收扫描
+          .record-wrap
+            .record-title
+              | 运单号：23953093503530&emsp;&emsp;&emsp;&emsp;发货中&emsp;&emsp;&emsp;&emsp;收寄地址：广东东莞--湖南株洲
+              span.seicon.seicon-arrows-right
+              span.seicon.seicon-arrows-down
+            .record-content
+              .time-line
+              .record-item.active
+                .record-item-time
+                  span.record-item-time-point
+                  span.record-item-new NEW
+                  | 2016年8月23日 下午8:44:06
+                .record-item-detail 在广东东莞南城区公司周溪站分布进行签收扫描，快件已被 已签收 签收
+              .record-item
+                .record-item-time <span class="record-item-time-point"></span> 2016年8月22日 下午6:04:36
+                .record-item-detail 在广东东莞南城区公司周溪站分布进行签收扫描
+              .record-item
+                .record-item-time <span class="record-item-time-point"></span> 2016年8月22日 下午2:45:29
+                .record-item-detail 在广东东莞南城区公司周溪站分布进行签收扫描
+          .record-wrap
+            .record-title
+              | 运单号：23953093503530&emsp;&emsp;&emsp;&emsp;发货中&emsp;&emsp;&emsp;&emsp;收寄地址：广东东莞--湖南株洲
+              span.seicon.seicon-arrows-right
+              span.seicon.seicon-arrows-down
+            .record-content
+              .time-line
+              .record-item.active
+                .record-item-time
+                  span.record-item-time-point
+                  span.record-item-new NEW
+                  | 2016年8月23日 下午8:44:06
+                .record-item-detail 在广东东莞南城区公司周溪站分布进行签收扫描，快件已被 已签收 签收
+              .record-item
+                .record-item-time <span class="record-item-time-point"></span> 2016年8月22日 下午6:04:36
+                .record-item-detail 在广东东莞南城区公司周溪站分布进行签收扫描
+              .record-item
+                .record-item-time <span class="record-item-time-point"></span> 2016年8月22日 下午2:45:29
+                .record-item-detail 在广东东莞南城区公司周溪站分布进行签收扫描
+block script
+  script(type='text/javaScript').
+    $(document).on("click",".seicon-arrows-right,.seicon-arrows-down", function(){
+      $(this).closest(".record-wrap").toggleClass("open");
+    })
