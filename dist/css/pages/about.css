@@ -1,0 +1,28 @@
+/*!
+ * sehome v1.0.0 - build @2016-10-05 
+ * se website
+ * Author: 冯恩鹏<enpenguc@163.com> 
+ * https://github.com/enpenguc/sehome
+ */
+/* 关于我们 */
+.page-about .about-banner {
+  width: 1100px;
+  margin: 0 auto;
+  height: 200px;
+  background: url("/img/ab_banner.jpg") no-repeat center top;
+  margin-bottom: 20px;
+}
+.page-about .se-content {
+  min-height: 300px;
+}
+.page-about .about-content {
+  padding: 30px;
+}
+.page-about .about-content .about-item {
+  line-height: 55px;
+}
+.page-about .about-content .about-item .seicon {
+  margin-right: 8px;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBhZ2VzL2Fib3V0LmNzcyIsInBhZ2VzL2Fib3V0Lmxlc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7O0FBQUEsVUFBVTtBQ0dWO0VBRUksY0FBQTtFQUNBLGVBQUE7RUFDQSxjQUFBO0VBQ0EsMkRBQUE7RUFDQSxvQkFBQTtDREZIO0FDSkQ7RUFTSSxrQkFBQTtDREZIO0FDUEQ7RUFZSSxjQUFBO0NERkg7QUNWRDtFQWNNLGtCQUFBO0NEREw7QUNiRDtFQWlCUSxrQkFBQTtDRERQIiwiZmlsZSI6InBhZ2VzL2Fib3V0LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qIOWFs+S6juaIkeS7rCAqL1xuLnBhZ2UtYWJvdXQgLmFib3V0LWJhbm5lciB7XG4gIHdpZHRoOiAxMTAwcHg7XG4gIG1hcmdpbjogMCBhdXRvO1xuICBoZWlnaHQ6IDIwMHB4O1xuICBiYWNrZ3JvdW5kOiB1cmwoXCIvaW1nL2FiX2Jhbm5lci5qcGdcIikgbm8tcmVwZWF0IGNlbnRlciB0b3A7XG4gIG1hcmdpbi1ib3R0b206IDIwcHg7XG59XG4ucGFnZS1hYm91dCAuc2UtY29udGVudCB7XG4gIG1pbi1oZWlnaHQ6IDMwMHB4O1xufVxuLnBhZ2UtYWJvdXQgLmFib3V0LWNvbnRlbnQge1xuICBwYWRkaW5nOiAzMHB4O1xufVxuLnBhZ2UtYWJvdXQgLmFib3V0LWNvbnRlbnQgLmFib3V0LWl0ZW0ge1xuICBsaW5lLWhlaWdodDogNTVweDtcbn1cbi5wYWdlLWFib3V0IC5hYm91dC1jb250ZW50IC5hYm91dC1pdGVtIC5zZWljb24ge1xuICBtYXJnaW4tcmlnaHQ6IDhweDtcbn1cbiIsIkBpbXBvcnQgXCIuLi9taXhpbnMvaW5kZXhcIjtcbkBpbXBvcnQgXCIuLi90aGVtZXMvaW5kZXhcIjtcbi8qIOWFs+S6juaIkeS7rCAqL1xuLnBhZ2UtYWJvdXQge1xuICAuYWJvdXQtYmFubmVyIHtcbiAgICB3aWR0aDogQHBhZ2Utd2lkdGg7XG4gICAgbWFyZ2luOiAwIGF1dG87XG4gICAgaGVpZ2h0OiAyMDBweDtcbiAgICBiYWNrZ3JvdW5kOiB1cmwoXCIvaW1nL2FiX2Jhbm5lci5qcGdcIikgbm8tcmVwZWF0IGNlbnRlciB0b3A7XG4gICAgbWFyZ2luLWJvdHRvbTogMjBweDtcbiAgfVxuICAuc2UtY29udGVudHtcbiAgICBtaW4taGVpZ2h0OiAzMDBweDtcbiAgfVxuICAuYWJvdXQtY29udGVudCB7XG4gICAgcGFkZGluZzogMzBweDtcbiAgICAuYWJvdXQtaXRlbSB7XG4gICAgICBsaW5lLWhlaWdodDogNTVweDtcblxuICAgICAgLnNlaWNvbiB7XG4gICAgICAgIG1hcmdpbi1yaWdodDogOHB4O1xuICAgICAgfVxuICAgIH1cbiAgfVxufVxuIl0sInNvdXJjZVJvb3QiOiIvc291cmNlLyJ9 */

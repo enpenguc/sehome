@@ -42,7 +42,7 @@ var dist = __dirname + '/dist';
 
 var paths = {
   scripts: 'src/js/**/*.js',
-  styles: 'src/less/*.less',
+  styles: ['src/less/pages/*.less', 'src/less/core.less', 'src/less/common.less', 'src/less/se.less'],
   images: 'src/img/**/*',
   html: 'src/pages/**/*.html',
   vendor: 'vendor/**/*',
@@ -207,10 +207,6 @@ gulp.task('build:html', ['revision'], function() {
 
 // 页面处理
 gulp.task('build:pug', ['revision'], function() {
-  gulp.start("watch:pug");
-});
-
-gulp.task('watch:pug', function() {
   var manifest = gulp.src(path.join(dist, "rev-manifest.json"));
   return gulp.src(paths.pugs, option)
     .pipe(changed(dist, {
@@ -230,7 +226,11 @@ gulp.task('watch:pug', function() {
     .pipe(revReplace({
       manifest: manifest
     }))
-    .pipe(gulp.dest(dist));
+    .pipe(gulp.dest(dist))
+    .pipe(browserSync.reload({
+      stream: true
+    }))
+
 })
 
 // 清空图片、样式、js
@@ -247,7 +247,7 @@ gulp.task('watch', function() {
   gulp.watch('src/less/**/*.less', ['build:style']);
   gulp.watch(paths.images, ['build:img']);
   gulp.watch(paths.html, ['build:html']);
-  gulp.watch(paths.pugs, ['watch:pug']);
+  gulp.watch(paths.pugs, ['build:pug']);
   gulp.watch(paths.lib, ['copy:lib']);
 });
 
