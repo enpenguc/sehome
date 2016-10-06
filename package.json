@@ -6,7 +6,7 @@
     "se home",
     "gulp",
     "less",
-    "pug",
+    "pug"
   ],
   "main": "index.js",
   "scripts": {

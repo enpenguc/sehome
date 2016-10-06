@@ -315,7 +315,7 @@ gulp.task('server', function() {
       }
     },
     port: yargs.p,
-    startPath: '/pages/index.html'
+    startPath: '/pages/home.html'
   });
 });
 
