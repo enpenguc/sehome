@@ -3,15 +3,17 @@
   "version": "1.0.0",
   "description": "se website",
   "keywords": [
-    "se",
-    "home"
+    "se home",
+    "gulp",
+    "less",
+    "pug",
   ],
   "main": "index.js",
   "scripts": {
+    "server": "node ./bin/server",
     "start": "gulp -ws",
     "build": "gulp release",
     "clean": "gulp clean",
-    "style": "gulp build:style",
     "doc": "gulp doc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
