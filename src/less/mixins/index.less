@@ -78,9 +78,21 @@
   }
 }
 // ellipsis
+
 .ellipsis(@width:100%) {
   width: @width;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+// opacity
+
+.opacity(@opacity) {
+  @opacity-ie: (@opacity * 100);
+  /* IE 8 filter */
+  -ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(Opacity=@{opacity-ie})";
+  /* IE lt 7 */
+  filter: ~"alpha(opacity=@{opacity-ie})";
+  /* 标准 */
+  opacity: @opacity;
 }
